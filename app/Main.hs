@@ -1,6 +1,6 @@
 module Main where
 
-import Lib
+import MapTraveler
 
 main :: IO ()
-main = someFunc
+main = traveler

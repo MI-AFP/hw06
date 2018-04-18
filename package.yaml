@@ -21,12 +21,15 @@ description:         Please see the README on Github at <https://github.com/MI-A
 
 dependencies:
 - base >= 4.7 && < 5
+- containers
+- lens
+- mtl
 
 library:
   source-dirs: src
 
 executables:
-  hw08-exe:
+  traveler:
     main:                Main.hs
     source-dirs:         app
     ghc-options:
@@ -46,3 +49,4 @@ tests:
     - -with-rtsopts=-N
     dependencies:
     - hw08
+    - hspec
