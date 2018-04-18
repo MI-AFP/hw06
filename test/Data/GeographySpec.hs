@@ -72,6 +72,13 @@ spec = do
                                                              "~~~~xxxx",
                                                              "~~~~xxxx",
                                                              "~~~~xxxx"]
+   describe "loadMap + mkCharStyle" $ do
+     it "loads empty map" $
+       loadMap [""] Styles.loadSimpleStyle `shouldBe` emptyMap
+     it "loads simple map" $ do
+       loadMap ["GGGG","GGGG"] Styles.loadSimpleStyle `shouldBe` simpleMap
+       loadMap ["    ","    "] Styles.loadAsciiStyle  `shouldBe` simpleMap
+       loadMap ["    ","    "] Styles.loadBoxedStyle  `shouldBe` simpleMap
    describe "newCoords" $ do
      it "can make step to North (UP)" $ do
        newCoords (Coords 2 2) North `shouldBe` Coords 2 1

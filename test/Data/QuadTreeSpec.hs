@@ -84,6 +84,18 @@ complexQTree2 = QuadTree
              , _qtHeight = 10
              }
 
+complexMatrix2 :: [[Int]]
+complexMatrix2 = [[9,9,9,9,9,-5,-5,-5,-5,-5],
+                  [9,9,9,9,9,-5,-5,-5,-5,-5],
+                  [9,9,9,9,9,-5,-5,-5,-5,-5],
+                  [9,9,9,9,9,-5,-5,-5,-5,-5],
+                  [9,9,9,9,9,-5,-5,-5,-5,-5],
+                  [-2,-2,10,10,10,1,1,1,1,1],
+                  [-2,-2,10,10,10,1,1,1,1,1],
+                  [-2,-2,10,10,10,1,1,1,1,1],
+                  [ 0, 0,-9,-9,-9,1,1,1,1,1],
+                  [ 0, 0,-9,-9,-9,1,1,1,1,1]]
+
 safeDiv :: Int -> Int -> Maybe Int
 safeDiv _ 0 = Nothing
 safeDiv x y = Just (x `div` y)
@@ -187,13 +199,9 @@ spec = do
                                         [-2,-2,-2,-2,-2,3,3,3,3,3],
                                         [-2,-2,-2,-2,-2,3,3,3,3,3],
                                         [-2,-2,-2,-2,-2,3,3,3,3,3]]
-      toMatrix complexQTree2 `shouldBe` [[9,9,9,9,9,-5,-5,-5,-5,-5],
-                                         [9,9,9,9,9,-5,-5,-5,-5,-5],
-                                         [9,9,9,9,9,-5,-5,-5,-5,-5],
-                                         [9,9,9,9,9,-5,-5,-5,-5,-5],
-                                         [9,9,9,9,9,-5,-5,-5,-5,-5],
-                                         [-2,-2,10,10,10,1,1,1,1,1],
-                                         [-2,-2,10,10,10,1,1,1,1,1],
-                                         [-2,-2,10,10,10,1,1,1,1,1],
-                                         [ 0, 0,-9,-9,-9,1,1,1,1,1],
-                                         [ 0, 0,-9,-9,-9,1,1,1,1,1]]
+      toMatrix complexQTree2 `shouldBe` complexMatrix2
+  describe "fromMatrix" $
+    it "converts matrix (list of lists) to quad tree" $ do
+      fromMatrix [[]] `shouldBe` emptyQTree
+      fromMatrix [[7,7,7,7],[7,7,7,7]] `shouldBe` simpleQTree1
+      fromMatrix complexMatrix2 `shouldBe` complexQTree2
