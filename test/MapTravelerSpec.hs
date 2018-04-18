@@ -7,13 +7,13 @@ import qualified Data.Geography.Styles as Styles
 import MapTraveler
 
 map3x3A :: Map
-map3x3A = loadMap ["   ","   ","   "] Styles.loadAsciiStyle
+map3x3A = loadMap Styles.loadAsciiStyle ["   ","   ","   "]
 
 map3x3B :: Map
-map3x3B = loadMap ["###","# #","###"] Styles.loadAsciiStyle
+map3x3B = loadMap Styles.loadAsciiStyle ["###","# #","###"]
 
 map1x1 :: Map
-map1x1 = loadMap [" "] Styles.loadAsciiStyle
+map1x1 = loadMap Styles.loadAsciiStyle [" "]
 
 spec :: Spec
 spec = do

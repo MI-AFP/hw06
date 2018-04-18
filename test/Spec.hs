@@ -11,4 +11,4 @@ spec :: Spec
 spec = do
   describe "Data.QuadTree"   Data.QuadTreeSpec.spec
   describe "Data.Geography"  Data.GeographySpec.spec
---s  describe "MapTraveler"     MapTravelerSpec.spec
+  describe "MapTraveler"     MapTravelerSpec.spec

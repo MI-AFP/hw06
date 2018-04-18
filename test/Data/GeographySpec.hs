@@ -39,34 +39,34 @@ spec :: Spec
 spec = do
    describe "displayMap + mkCharStyle" $ do
      it "displays empty map" $
-       displayMap emptyMap Styles.simpleStyle `shouldBe` [""]
+       displayMap Styles.simpleStyle emptyMap `shouldBe` [""]
      it "displays simple map" $ do
-       displayMap simpleMap Styles.simpleStyle `shouldBe` ["GGGG",
+       displayMap Styles.simpleStyle simpleMap `shouldBe` ["GGGG",
                                                            "GGGG"]
-       displayMap simpleMap Styles.asciiStyle  `shouldBe` ["    ",
+       displayMap Styles.asciiStyle simpleMap  `shouldBe` ["    ",
                                                            "    "]
-       displayMap simpleMap Styles.boxedStyle  `shouldBe` ["    ",
+       displayMap Styles.boxedStyle simpleMap  `shouldBe` ["    ",
                                                            "    "]
      it "displays complex maps" $ do
-       displayMap complexMap1 Styles.simpleStyle `shouldBe` ["GGGGDDDD",
+       displayMap Styles.simpleStyle complexMap1 `shouldBe` ["GGGGDDDD",
                                                              "GGGGDDDD",
                                                              "GGGGDDDD",
                                                              "WWWWTTTT",
                                                              "WWWWTTTT",
                                                              "WWWWTTTT"]
-       displayMap complexMap1 Styles.boxedStyle  `shouldBe` ["    ░░░░",
+       displayMap Styles.boxedStyle complexMap1  `shouldBe` ["    ░░░░",
                                                              "    ░░░░",
                                                              "    ░░░░",
                                                              "~~~~©©©©",
                                                              "~~~~©©©©",
                                                              "~~~~©©©©"]
-       displayMap complexMap2 Styles.simpleStyle `shouldBe` ["OOOORRRR",
+       displayMap Styles.simpleStyle complexMap2 `shouldBe` ["OOOORRRR",
                                                              "OOOORRRR",
                                                              "OOOORRRR",
                                                              "WWWWTTTT",
                                                              "WWWWTTTT",
                                                              "WWWWTTTT"]
-       displayMap complexMap2 Styles.asciiStyle  `shouldBe` ["####++++",
+       displayMap Styles.asciiStyle complexMap2  `shouldBe` ["####++++",
                                                              "####++++",
                                                              "####++++",
                                                              "~~~~xxxx",
@@ -74,11 +74,11 @@ spec = do
                                                              "~~~~xxxx"]
    describe "loadMap + mkCharStyle" $ do
      it "loads empty map" $
-       loadMap [""] Styles.loadSimpleStyle `shouldBe` emptyMap
+       loadMap Styles.loadSimpleStyle [""] `shouldBe` emptyMap
      it "loads simple map" $ do
-       loadMap ["GGGG","GGGG"] Styles.loadSimpleStyle `shouldBe` simpleMap
-       loadMap ["    ","    "] Styles.loadAsciiStyle  `shouldBe` simpleMap
-       loadMap ["    ","    "] Styles.loadBoxedStyle  `shouldBe` simpleMap
+       loadMap Styles.loadSimpleStyle ["GGGG","GGGG"] `shouldBe` simpleMap
+       loadMap Styles.loadAsciiStyle ["    ","    "]  `shouldBe` simpleMap
+       loadMap Styles.loadBoxedStyle ["    ","    "]  `shouldBe` simpleMap
    describe "newCoords" $ do
      it "can make step to North (UP)" $ do
        newCoords (Coords 2 2) North `shouldBe` Coords 2 1

@@ -36,13 +36,13 @@ walkable _ = False
 -- | Convert given 'Map' to 'Char' matrix by given transformation
 --
 -- TODO: implement
-displayMap :: Map -> (MapField -> Char) -> [String]
+displayMap :: (MapField -> Char) -> Map -> [String]
 displayMap = undefined
 
 -- | Convert given 'Char' matrix to 'Map' by given transformation
 --
 -- TODO: implement
-loadMap :: [String] -> (Char -> MapField) -> Map
+loadMap :: (Char -> MapField) -> [String] -> Map
 loadMap = undefined
 
 -- | Update coordinates by moving one step with given direction

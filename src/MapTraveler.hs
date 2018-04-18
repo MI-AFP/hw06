@@ -31,7 +31,7 @@ makeMapWithTraveler = undefined
 
 -- | Print given state (map with traveler on it)
 printState :: TravelState -> IO ()
-printState (TravelState m c) = sequence_ . fmap putStrLn . makeMapWithTraveler c $ displayMap m boxedStyle
+printState (TravelState m c) = sequence_ . fmap putStrLn . makeMapWithTraveler c $ displayMap boxedStyle m 
 
 -- | Convert string to direction
 --
