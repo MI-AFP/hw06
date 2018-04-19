@@ -51,15 +51,15 @@ spec = do
     it "moves traveler if possible" $ do
       move North (TravelState map3x3A (Coords 1 1)) `shouldBe` TravelState map3x3A (Coords 1 0)
       move South (TravelState map3x3A (Coords 1 1)) `shouldBe` TravelState map3x3A (Coords 1 2)
-      move East  (TravelState map3x3A (Coords 1 1)) `shouldBe` TravelState map3x3A (Coords 0 1)
-      move West  (TravelState map3x3A (Coords 1 1)) `shouldBe` TravelState map3x3A (Coords 2 1)
+      move West  (TravelState map3x3A (Coords 1 1)) `shouldBe` TravelState map3x3A (Coords 0 1)
+      move East  (TravelState map3x3A (Coords 1 1)) `shouldBe` TravelState map3x3A (Coords 2 1)
     it "doesn't move traveler if not walkable" $ do
       move North (TravelState map3x3B (Coords 1 1)) `shouldBe` TravelState map3x3B (Coords 1 1)
       move South (TravelState map3x3B (Coords 1 1)) `shouldBe` TravelState map3x3B (Coords 1 1)
-      move East  (TravelState map3x3B (Coords 1 1)) `shouldBe` TravelState map3x3B (Coords 1 1)
       move West  (TravelState map3x3B (Coords 1 1)) `shouldBe` TravelState map3x3B (Coords 1 1)
+      move East  (TravelState map3x3B (Coords 1 1)) `shouldBe` TravelState map3x3B (Coords 1 1)
     it "doesn't move traveler if out of map" $ do
       move North (TravelState map1x1 (Coords 0 0)) `shouldBe` TravelState map1x1 (Coords 0 0)
       move South (TravelState map1x1 (Coords 0 0)) `shouldBe` TravelState map1x1 (Coords 0 0)
-      move East  (TravelState map1x1 (Coords 0 0)) `shouldBe` TravelState map1x1 (Coords 0 0)
       move West  (TravelState map1x1 (Coords 0 0)) `shouldBe` TravelState map1x1 (Coords 0 0)
+      move East  (TravelState map1x1 (Coords 0 0)) `shouldBe` TravelState map1x1 (Coords 0 0)
