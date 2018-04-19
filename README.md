@@ -6,7 +6,7 @@ Homework to practice Foldable, Traversable, State Monad Transformer, and Lens
 
 In this homework you will implement some functions to work with maps...
 
-1. *Data.QuadTree* = make `QuadTree` data structure an instance of `Functor`, `Foldable`, and `Traversable` (think about delegation) and implement other prepated functions. You can use prepared lenses for data types `QuadTree` and `Quadrant` to make your code more readable.
+1. *Data.QuadTree* = make `QuadTree` data structure an instance of `Functor`, `Foldable`, and `Traversable` (think about delegation) and implement other prepated functions. You can use prepared lenses for data types `QuadTree` and `Quadrant` to make your code more readable. *Spoiler*: the most challenging part is `fromMatrix`.
 2. *Data.Geography[.Styles]* = this module defined `Coords`, `Map`, and other related stuff. Few functions are not implemented and are waiting for you to be done. Try to make it as simple as possible. Recall syntactic sugar, point free style, and pattern matching. Again, lenses are ready for you...
 3. *MapTraveler* = here is the interesting part - the `StateT`, you can rework it or just investigate and use as is. You have to implement 3 normal functions which are used in state manipulation and for the CLI.
 

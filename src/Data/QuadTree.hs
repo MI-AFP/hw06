@@ -3,7 +3,7 @@
 
 module Data.QuadTree where
 
-import Control.Lens
+import Control.Lens hiding (Empty)
 
 -- | Quadtree data structure
 --
@@ -68,6 +68,9 @@ toMatrix = undefined
 
 -- | Convert matrix to 'QuadTree'
 --
+-- Should return simplified quad tree
+-- Law: toMatrix . fromMatrix == id
+-- Law: fromMatrix . toMatrix == id
 -- TODO: implement
-fromMatrix :: [[a]] -> QuadTree a
+fromMatrix :: Eq a => [[a]] -> QuadTree a
 fromMatrix = undefined

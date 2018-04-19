@@ -31,7 +31,7 @@ makeMapWithTraveler = undefined
 
 -- | Print given state (map with traveler on it)
 printState :: TravelState -> IO ()
-printState (TravelState m c) = sequence_ . fmap putStrLn . makeMapWithTraveler c $ displayMap boxedStyle m 
+printState (TravelState m c) = sequence_ . fmap putStrLn . makeBorder . makeMapWithTraveler c $ displayMap boxedStyle m
 
 -- | Convert string to direction
 --
@@ -46,8 +46,8 @@ stringToDirection = undefined
 getIODirection :: IO (Maybe Direction)
 getIODirection = do
   putStrLn "What direction do you want to go?"
-  x <- getChar
-  return . stringToDirection $ x
+  x <- getLine
+  return . stringToDirection . head $ x
 
 -- | Change the traveler state by moving with given direction
 --
@@ -80,6 +80,15 @@ traveler = do
   let ts = TravelState Maps.map01 (Coords 10 0)
   runStateT walkTheMap ts
   putStrLn "Byeee!"
+
+-- | Make border around char matrix
+makeBorder :: [String] -> [String]
+makeBorder m = top ++ inner ++ bot
+  where
+    top = ["╔" ++ replicate (w-2) '═' ++ "╗"]
+    bot = ["╚" ++ replicate (w-2) '═' ++ "╝"]
+    inner = map (\x -> "║" ++ x ++ "║") m
+    w = if null m then 0 else length (head m)
 
 -- Optionally you can improve this
 -- (and make it a game as term work?)

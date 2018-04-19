@@ -22,7 +22,7 @@ spec = do
       makeMapWithTraveler (Coords 0 0) ["   "] `shouldBe` ["@  "]
       makeMapWithTraveler (Coords 1 0) ["   "] `shouldBe` [" @ "]
       makeMapWithTraveler (Coords 0 1) ["   ", "   "] `shouldBe` ["   ", "@  "]
-      makeMapWithTraveler (Coords 0 1) ["   ", " @ "] `shouldBe` ["   ", " @ "]
+      makeMapWithTraveler (Coords 1 1) ["   ", "   "] `shouldBe` ["   ", " @ "]
     it "ignores bad coords" $ do
       makeMapWithTraveler (Coords 3 3) ["   ", "   "] `shouldBe` ["   ", "   "]
       makeMapWithTraveler (Coords 0 5) ["   ", "   "] `shouldBe` ["   ", "   "]

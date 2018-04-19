@@ -48,11 +48,12 @@ loadMap = undefined
 -- | Update coordinates by moving one step with given direction
 --
 -- TODO: implement
-newCoords :: Coords -> Direction -> Coords
+newCoords :: Direction -> Coords -> Coords
 newCoords = undefined
 
--- | Get direction from two coordinates ('Nothing' if the same)
+-- | Get direction from two coordinates
 --
+-- 'Nothing' if the same or both coords different
 -- TODO: implement
 getDirection :: Coords -> Coords -> Maybe Direction
 getDirection = undefined

@@ -31,8 +31,8 @@ complexMap1 = QuadTree
 complexMap2 :: Map
 complexMap2 = QuadTree
            { _qtTree   = Node (Leaf Obstacle) (Leaf Road) (Leaf Water) (Leaf Tree)
-           , _qtWidth  = 4
-           , _qtHeight = 4
+           , _qtWidth  = 9
+           , _qtHeight = 7
            }
 
 spec :: Spec
@@ -60,18 +60,20 @@ spec = do
                                                              "~~~~©©©©",
                                                              "~~~~©©©©",
                                                              "~~~~©©©©"]
-       displayMap Styles.simpleStyle complexMap2 `shouldBe` ["OOOORRRR",
-                                                             "OOOORRRR",
-                                                             "OOOORRRR",
-                                                             "WWWWTTTT",
-                                                             "WWWWTTTT",
-                                                             "WWWWTTTT"]
-       displayMap Styles.asciiStyle complexMap2  `shouldBe` ["####++++",
-                                                             "####++++",
-                                                             "####++++",
-                                                             "~~~~xxxx",
-                                                             "~~~~xxxx",
-                                                             "~~~~xxxx"]
+       displayMap Styles.simpleStyle complexMap2 `shouldBe` ["OOOORRRRR",
+                                                             "OOOORRRRR",
+                                                             "OOOORRRRR",
+                                                             "OOOORRRRR",
+                                                             "WWWWTTTTT",
+                                                             "WWWWTTTTT",
+                                                             "WWWWTTTTT"]
+       displayMap Styles.asciiStyle complexMap2  `shouldBe` ["####+++++",
+                                                             "####+++++",
+                                                             "####+++++",
+                                                             "####+++++",
+                                                             "~~~~xxxxx",
+                                                             "~~~~xxxxx",
+                                                             "~~~~xxxxx"]
    describe "loadMap + mkCharStyle" $ do
      it "loads empty map" $
        loadMap Styles.loadSimpleStyle [""] `shouldBe` emptyMap
@@ -81,26 +83,26 @@ spec = do
        loadMap Styles.loadBoxedStyle ["    ","    "]  `shouldBe` simpleMap
    describe "newCoords" $ do
      it "can make step to North (UP)" $ do
-       newCoords (Coords 2 2) North `shouldBe` Coords 2 1
-       newCoords (Coords 2 (-2)) North `shouldBe` Coords 2 (-3)
-       newCoords (Coords 0 5) North `shouldBe` Coords 0 4
+       newCoords North (Coords 2 2) `shouldBe` Coords 2 1
+       newCoords North (Coords 2 (-2)) `shouldBe` Coords 2 (-3)
+       newCoords North (Coords 0 5) `shouldBe` Coords 0 4
      it "can make step to South (DOWN)" $ do
-       newCoords (Coords 2 2) South `shouldBe` Coords 2 3
-       newCoords (Coords 2 (-2)) South `shouldBe` Coords 2 (-1)
-       newCoords (Coords 0 5) South `shouldBe` Coords 0 6
-     it "can make step to East (LEFT)" $ do
-       newCoords (Coords 2 2) East `shouldBe` Coords 1 2
-       newCoords (Coords 2 (-2)) East `shouldBe` Coords 1 (-2)
-       newCoords (Coords 0 5) East `shouldBe` Coords (-1) 5
-     it "can make step to West (RIGHT)" $ do
-       newCoords (Coords 2 2) West `shouldBe` Coords 3 2
-       newCoords (Coords 2 (-2)) West `shouldBe` Coords 3 (-2)
-       newCoords (Coords 0 5) West `shouldBe` Coords 1 5
+       newCoords South (Coords 2 2) `shouldBe` Coords 2 3
+       newCoords South (Coords 2 (-2)) `shouldBe` Coords 2 (-1)
+       newCoords South (Coords 0 5) `shouldBe` Coords 0 6
+     it "can make step to West (LEFT)" $ do
+       newCoords West (Coords 2 2) `shouldBe` Coords 1 2
+       newCoords West (Coords 2 (-2)) `shouldBe` Coords 1 (-2)
+       newCoords West (Coords 0 5) `shouldBe` Coords (-1) 5
+     it "can make step to East (RIGHT)" $ do
+       newCoords East (Coords 2 2) `shouldBe` Coords 3 2
+       newCoords East (Coords 2 (-2)) `shouldBe` Coords 3 (-2)
+       newCoords East (Coords 0 5) `shouldBe` Coords 1 5
    describe "getDirection" $ do
      it "computes direction from two different points" $ do
        getDirection (Coords 2 2) (Coords 2 1) `shouldBe` Just North
        getDirection (Coords 2 2) (Coords 2 3) `shouldBe` Just South
-       getDirection (Coords 2 2) (Coords 1 2) `shouldBe` Just East
-       getDirection (Coords 2 2) (Coords 3 2) `shouldBe` Just West
+       getDirection (Coords 2 2) (Coords 1 2) `shouldBe` Just West
+       getDirection (Coords 2 2) (Coords 3 2) `shouldBe` Just East
      it "returns Nothing if points are the same" $
        getDirection (Coords 2 2) (Coords 2 2) `shouldBe` Nothing

@@ -2,8 +2,6 @@ module Data.Geography.Styles where
 
 import Data.Geography
 
-import Data.Map as M
-
 -- | Default char if unknown 'MapField' is encountered
 defaultChar = '?'
 
@@ -40,19 +38,20 @@ boxed = [ (Grass, ' ')
 -- | Create transformation from 'MapField' to 'Char'
 --
 -- TODO: implement
-mkCharStyle :: [(MapField, Char)] -> (MapField -> Char)
-mkCharStyle = undefined
+mkCharStyle :: [(MapField, Char)] -> MapField -> Char
+mkCharStyle m x = undefined
 
 simpleStyle = mkCharStyle simpleChars
-asciiStyle = mkCharStyle simpleChars
-boxedStyle = mkCharStyle simpleChars
+asciiStyle = mkCharStyle ascii
+boxedStyle = mkCharStyle boxed
 
 -- | Create transformation from 'Char' to 'MapField'
 --
+-- May cause some error if char not defined
 -- TODO: implement
-mkLoadStyle :: [(MapField, Char)] -> (Char -> MapField)
-mkLoadStyle = undefined
+mkLoadStyle :: [(MapField, Char)] -> Char -> MapField
+mkLoadStyle m x = undefined
 
 loadSimpleStyle = mkLoadStyle simpleChars
-loadAsciiStyle = mkLoadStyle simpleChars
-loadBoxedStyle = mkLoadStyle simpleChars
+loadAsciiStyle = mkLoadStyle ascii
+loadBoxedStyle = mkLoadStyle boxed

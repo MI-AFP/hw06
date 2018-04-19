@@ -179,9 +179,9 @@ spec = do
     it "retrieves Just element if it is there" $ do
       getElement simpleQTree1 2 1 `shouldBe` Just 7
       getElement simpleQTree3 3 2 `shouldBe` Just 7
-      getElement simpleQTree3 4 8 `shouldBe` Just 3
-      getElement simpleQTree1 5 1 `shouldBe` Just 0
-      getElement simpleQTree1 4 9 `shouldBe` Just (-2)
+      getElement simpleQTree3 4 8 `shouldBe` Just (-2)
+      getElement simpleQTree3 5 1 `shouldBe` Just 0
+      getElement simpleQTree3 5 9 `shouldBe` Just 3
       getElement complexQTree1 2 7 `shouldBe` Just 15
       getElement complexQTree1 1 8 `shouldBe` Just 5
   describe "toMatrix" $
