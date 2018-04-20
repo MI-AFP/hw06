@@ -5,6 +5,7 @@ import qualified Control.Lens as Lens
 import Test.Hspec
 
 import Data.QuadTree
+import qualified Maps
 
 emptyQTree :: QuadTree Int
 emptyQTree = QuadTree
@@ -200,8 +201,11 @@ spec = do
                                         [-2,-2,-2,-2,-2,3,3,3,3,3],
                                         [-2,-2,-2,-2,-2,3,3,3,3,3]]
       toMatrix complexQTree2 `shouldBe` complexMatrix2
-  describe "fromMatrix" $
+  describe "fromMatrix" $ do
     it "converts matrix (list of lists) to quad tree" $ do
       fromMatrix [[]] `shouldBe` emptyQTree
       fromMatrix [[7,7,7,7],[7,7,7,7]] `shouldBe` simpleQTree1
       fromMatrix complexMatrix2 `shouldBe` complexQTree2
+    it "works with toMatrix as identity (complex map)" $ do
+      length (toMatrix . fromMatrix $ Maps.map01data) `shouldBe` 12
+      all (\x -> length x == 40) (toMatrix . fromMatrix $ Maps.map01data) `shouldBe` True

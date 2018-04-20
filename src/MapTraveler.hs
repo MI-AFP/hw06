@@ -76,7 +76,7 @@ walkTheMap = do
 traveler :: IO ()
 traveler = do
   putStrLn "The Map Traveler"
-  -- TODO: generate initial x,y (but check if walkable!)
+  -- TODO: generate initial x,y (but check if walkable!, optional)
   let ts = TravelState Maps.map01 (Coords 10 0)
   runStateT walkTheMap ts
   putStrLn "Byeee!"
