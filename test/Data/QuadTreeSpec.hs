@@ -148,7 +148,7 @@ spec = do
                                               [ 0, 0,-9,-9,-9,1,1,1,1,1]]
     it "is instance of Traversable" $ do
       traverse (safeDiv 5) emptyQTree `shouldBe` Just emptyQTree
-      traverse (safeDiv 5) simpleQTree1 `shouldBe` Just (Lens.set qtTree (Leaf 1) simpleQTree1)
+      traverse (safeDiv 5) simpleQTree1 `shouldBe` Just (Lens.set qtTree (Leaf 0) simpleQTree1)
       traverse (safeDiv 5) simpleQTree4 `shouldBe` Nothing
       traverse (safeDiv 5) complexQTree2 `shouldBe` Nothing
       sequence (fmap Just complexQTree2) `shouldBe` Just complexQTree2
