@@ -1,10 +1,10 @@
-name:                hw08
+name:                hw06
 version:             0.1.0.0
-github:              "MI-AFP/hw08"
+github:              "MI-AFP/hw06"
 license:             MIT
 author:              "Marek Suchánek"
 maintainer:          "marek.suchanek@fit.cvut.cz"
-copyright:           "2018 Marek Suchánek"
+copyright:           "2019 Marek Suchánek"
 
 extra-source-files:
 - README.md
@@ -38,10 +38,10 @@ executables:
     - -rtsopts
     - -with-rtsopts=-N
     dependencies:
-    - hw08
+    - hw06
 
 tests:
-  hw08-test:
+  hw06-test:
     main:                Spec.hs
     source-dirs:         test
     ghc-options:
@@ -49,5 +49,5 @@ tests:
     - -rtsopts
     - -with-rtsopts=-N
     dependencies:
-    - hw08
+    - hw06
     - hspec

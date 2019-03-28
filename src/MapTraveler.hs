@@ -93,5 +93,6 @@ makeBorder m = top ++ inner ++ bot
 -- Optionally you can improve this
 -- (and make it a game as term work?)
 -- - load map from file
+-- - configuration file/env/args
 -- - implement some interaction
 -- - use ncurses or GUI

@@ -1,4 +1,4 @@
-# hw08
+# hw06
 
 Homework to practice Foldable, Traversable, State Monad Transformer, and Lens
 

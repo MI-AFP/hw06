@@ -53,7 +53,7 @@ newCoords = undefined
 
 -- | Get direction from two coordinates
 --
--- 'Nothing' if the same or both coords different
+-- 'Nothing' if cannot pick one of directions
 -- TODO: implement
 getDirection :: Coords -> Coords -> Maybe Direction
 getDirection = undefined
