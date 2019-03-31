@@ -106,3 +106,8 @@ spec = do
        getDirection (Coords 2 2) (Coords 3 2) `shouldBe` Just East
      it "returns Nothing if points are the same" $
        getDirection (Coords 2 2) (Coords 2 2) `shouldBe` Nothing
+     it "returns Nothing if points are in multiple directions" $ do
+        getDirection (Coords 2 2) (Coords 1 1) `shouldBe` Nothing
+        getDirection (Coords 2 2) (Coords 1 3) `shouldBe` Nothing
+        getDirection (Coords 2 2) (Coords 3 1) `shouldBe` Nothing
+        getDirection (Coords 2 2) (Coords 3 3) `shouldBe` Nothing
