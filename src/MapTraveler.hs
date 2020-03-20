@@ -70,7 +70,7 @@ walkTheMap = do
   whileJust_ (lift getIODirection) $ \direction -> do
     modify (move direction)
     st <- get
-    lift $ printState initSt
+    lift $ printState st
 
 -- | Basic interface for map traveler
 traveler :: IO ()
