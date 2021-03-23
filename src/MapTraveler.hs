@@ -85,8 +85,8 @@ traveler = do
 makeBorder :: [String] -> [String]
 makeBorder m = top ++ inner ++ bot
   where
-    top = ["╔" ++ replicate (w-2) '═' ++ "╗"]
-    bot = ["╚" ++ replicate (w-2) '═' ++ "╝"]
+    top = ["╔" ++ replicate w '═' ++ "╗"]
+    bot = ["╚" ++ replicate w '═' ++ "╝"]
     inner = map (\x -> "║" ++ x ++ "║") m
     w = if null m then 0 else length (head m)
 
